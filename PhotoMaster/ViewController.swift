@@ -41,6 +41,17 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
     }
     
+    @IBAction func onTappedUploadButton() {
+        if photoImageView.image != nil {
+            //共有するアイテムを設定
+            let activityVC = UIActivityViewController(activityItems: [photoImageView.image!, "#PhotoMaster"],
+                                                      applicationActivities: nil)
+            self.present(activityVC, animated: true, completion: nil)
+        } else {
+            print("画像がありません")
+        }
+    }
+    
     
     //カメラ、アルバムの呼び出しメソッド（カメラorアルバムのソースタイプが引数）
     func presentPickConroller(sourceType: UIImagePickerController.SourceType) {
